@@ -70,10 +70,10 @@ export default ({ state, sendMessage, ...props }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const bottomRef = useRef(null);
+  const messagesEndRef = useRef(null);
 
-  const scrollToBottom = () => {
-    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  const showLastMessage = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -135,12 +135,15 @@ export default ({ state, sendMessage, ...props }) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ChatMessageBoard users={users} messages={messages} />
+        <ChatMessageBoard
+          users={users}
+          messages={messages}
+          messagesEndRef={messagesEndRef}
+        />
         <ChatMessageEditor
-          scrollToBottom={scrollToBottom}
+          showLastMessage={showLastMessage}
           sendMessage={sendMessage}
         />
-        <div ref={bottomRef} />
       </div>
     </div>
   );

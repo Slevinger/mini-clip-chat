@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ sendMessage, scrollToBottom }) => {
+export default ({ sendMessage, showLastMessage }) => {
   const classes = useStyles();
   const [message, setMessage] = useState("");
 
@@ -28,7 +28,7 @@ export default ({ sendMessage, scrollToBottom }) => {
         value={message}
         variant="outlined"
         onFocus={() => {
-          scrollToBottom();
+          showLastMessage();
         }}
         onChange={e => {
           setMessage(e.target.value);

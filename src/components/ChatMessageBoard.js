@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ messages, users }) => {
+export default ({ messages, users, messagesEndRef }) => {
   const classes = useStyles();
 
   const [showLatest, setShowLatest] = useState(true);
@@ -35,7 +35,7 @@ export default ({ messages, users }) => {
     if (showLatest) {
       scrollToBottom();
     }
-  }, [bottomRef, showLatest, messages.length]);
+  }, [showLatest, messages.length]);
   const containerRef = useBottomScrollListener(() => {
     setShowLatest(true);
   });
@@ -53,6 +53,12 @@ export default ({ messages, users }) => {
             {...message}
           />
           <Divider variant="inset" component="li" />
+          {index === messages.length - 1 && (
+            <div
+              style={{ float: "left", clear: "both" }}
+              ref={messagesEndRef}
+            />
+          )}
         </div>
       ))}
       <div style={{ float: "left", clear: "both" }} ref={bottomRef} />
