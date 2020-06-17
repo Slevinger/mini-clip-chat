@@ -59,6 +59,7 @@ export default ({ classes, user, ...props }) => {
           <React.Fragment>
             <Typography
               component="span"
+              style={{ alignSelf: "flex-end" }}
               variant="body2"
               className={classes.inline}
               color="textPrimary"
