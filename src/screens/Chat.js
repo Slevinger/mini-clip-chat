@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default ({ state, sendMessage, ...props }) => {
-  const { users, messages, error } = state;
+  const { users, messages, error, username } = state;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -132,7 +132,11 @@ export default ({ state, sendMessage, ...props }) => {
           </Toolbar>
         </AppBar>
         <ChatMessageBoard users={users} messages={messages} />
-        <ChatMessageEditor error={error} sendMessage={sendMessage} />
+        <ChatMessageEditor
+          error={error}
+          sendMessage={sendMessage}
+          username={username}
+        />
       </div>
     </div>
   );

@@ -14,15 +14,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ sendMessage, showLastMessage, error }) => {
+export default ({ sendMessage, username, error }) => {
   const classes = useStyles();
   const [message, setMessage] = useState("");
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
-        error={error}
-        helperText={error}
+        error={username && error}
+        helperText={username && error}
         id="outlined-multiline-static"
         label="Message"
         multiline
