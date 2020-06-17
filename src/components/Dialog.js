@@ -68,7 +68,7 @@ export default props => {
         />
         <Container className={classes.avatarPicker}>
           <Avatar alt={username} src={state.imageUrl} />
-          <LinkContainer disabled={!username} className={classes.linkContainer}>
+          <LinkContainer className={classes.linkContainer}>
             <a
               href="#"
               onClick={() => {
