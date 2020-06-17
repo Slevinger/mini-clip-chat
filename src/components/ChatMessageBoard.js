@@ -20,16 +20,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ messages, users }) => {
+export default ({ messages, users, bottomRef, scrollToBottom }) => {
   const classes = useStyles();
 
   const [showLatest, setShowLatest] = useState(true);
 
-  const bottomRef = useRef(null);
+  // const bottomRef = useRef(null);
 
-  const scrollToBottom = () => {
-    bottomRef.current.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToBottom = () => {
+  //   bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
 
   useLayoutEffect(() => {
     if (showLatest) {

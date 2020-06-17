@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -65,11 +65,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ state, sendMessage, ...props }) => {
+export default ({ state, sendMessage }) => {
   const { users, messages } = state;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const bottomRef = useRef(null);
+
+  const scrollToBottom = () => {
+    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -131,8 +137,16 @@ export default ({ state, sendMessage, ...props }) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ChatMessageBoard users={users} messages={messages} />
-        <ChatMessageEditor sendMessage={sendMessage} />
+        <ChatMessageBoard
+          bottomRef={bottomRef}
+          scrollToBottom={scrollToBottom}
+          users={users}
+          messages={messages}
+        />
+        <ChatMessageEditor
+          sendMessage={sendMessage}
+          scrollToBottom={scrollToBottom}
+        />
       </div>
     </div>
   );
