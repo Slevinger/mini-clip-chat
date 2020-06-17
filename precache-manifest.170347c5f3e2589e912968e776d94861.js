@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a98191ab8bec096caafff5c7f8afab98",
+    "revision": "8873783542081673b7f3e92119ce7436",
     "url": "/mini-clip-chat/index.html"
   },
   {
-    "revision": "248b9640b80e4b49725b",
+    "revision": "208ae63eacaa4c68d378",
     "url": "/mini-clip-chat/static/css/main.1f4ea31b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mini-clip-chat/static/js/2.6bc2674a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "248b9640b80e4b49725b",
-    "url": "/mini-clip-chat/static/js/main.4744d267.chunk.js"
+    "revision": "208ae63eacaa4c68d378",
+    "url": "/mini-clip-chat/static/js/main.21049447.chunk.js"
   },
   {
     "revision": "557a56039022903ed9af",
