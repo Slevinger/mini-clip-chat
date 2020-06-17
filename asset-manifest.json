@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/mini-clip-chat/static/css/main.1f4ea31b.chunk.css",
-    "main.js": "/mini-clip-chat/static/js/main.5a106dd0.chunk.js",
-    "main.js.map": "/mini-clip-chat/static/js/main.5a106dd0.chunk.js.map",
+    "main.js": "/mini-clip-chat/static/js/main.9440608b.chunk.js",
+    "main.js.map": "/mini-clip-chat/static/js/main.9440608b.chunk.js.map",
     "runtime-main.js": "/mini-clip-chat/static/js/runtime-main.e0e1a922.js",
     "runtime-main.js.map": "/mini-clip-chat/static/js/runtime-main.e0e1a922.js.map",
-    "static/js/2.3ec65c4a.chunk.js": "/mini-clip-chat/static/js/2.3ec65c4a.chunk.js",
-    "static/js/2.3ec65c4a.chunk.js.map": "/mini-clip-chat/static/js/2.3ec65c4a.chunk.js.map",
+    "static/js/2.3ef88dc2.chunk.js": "/mini-clip-chat/static/js/2.3ef88dc2.chunk.js",
+    "static/js/2.3ef88dc2.chunk.js.map": "/mini-clip-chat/static/js/2.3ef88dc2.chunk.js.map",
     "index.html": "/mini-clip-chat/index.html",
-    "precache-manifest.841244265c9fbd097faa9bb26944de0f.js": "/mini-clip-chat/precache-manifest.841244265c9fbd097faa9bb26944de0f.js",
+    "precache-manifest.1830c51ee767ae1a87c27954031b2af7.js": "/mini-clip-chat/precache-manifest.1830c51ee767ae1a87c27954031b2af7.js",
     "service-worker.js": "/mini-clip-chat/service-worker.js",
     "static/css/main.1f4ea31b.chunk.css.map": "/mini-clip-chat/static/css/main.1f4ea31b.chunk.css.map",
-    "static/js/2.3ec65c4a.chunk.js.LICENSE.txt": "/mini-clip-chat/static/js/2.3ec65c4a.chunk.js.LICENSE.txt"
+    "static/js/2.3ef88dc2.chunk.js.LICENSE.txt": "/mini-clip-chat/static/js/2.3ef88dc2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e0e1a922.js",
-    "static/js/2.3ec65c4a.chunk.js",
+    "static/js/2.3ef88dc2.chunk.js",
     "static/css/main.1f4ea31b.chunk.css",
-    "static/js/main.5a106dd0.chunk.js"
+    "static/js/main.9440608b.chunk.js"
   ]
 }
