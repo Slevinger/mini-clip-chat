@@ -22,6 +22,7 @@ export default ({ sendMessage, showLastMessage, error }) => {
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
         error={error}
+        helperText={error}
         id="outlined-multiline-static"
         label="Message"
         multiline
