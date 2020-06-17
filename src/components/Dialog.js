@@ -50,7 +50,7 @@ export default props => {
     },
     [state]
   );
-  debugger;
+
   return (
     <Dialog aria-labelledby="simple-dialog-title" open={!state.username}>
       <DialogTitle>Sign In</DialogTitle>

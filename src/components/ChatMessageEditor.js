@@ -14,22 +14,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ sendMessage, showLastMessage }) => {
+export default ({ sendMessage, showLastMessage, error }) => {
   const classes = useStyles();
   const [message, setMessage] = useState("");
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
+        error={error}
         id="outlined-multiline-static"
         label="Message"
         multiline
         rows={4}
         value={message}
         variant="outlined"
-        onFocus={() => {
-          showLastMessage();
-        }}
         onChange={e => {
           setMessage(e.target.value);
         }}

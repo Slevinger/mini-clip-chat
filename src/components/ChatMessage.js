@@ -7,6 +7,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
+import { display } from "@material-ui/system";
 
 const StyledListItem = styled(ListItem)`
   ${({ username }) => {
@@ -25,7 +26,7 @@ const timeAgo = new TimeAgo("en-US");
 export default ({ classes, user, ...props }) => {
   const { message_id, sent_at, username, message } = props;
   const date = new Date(sent_at);
-
+  debugger;
   return (
     <StyledListItem
       username={username}
@@ -43,7 +44,14 @@ export default ({ classes, user, ...props }) => {
             </Typography>
             {` said  —  `}
             <Typography variant="h6" component="span" color="textPrimary">
-              {`"${message}"`}
+              <Typography
+                stlye={{ display: "table-caption" }}
+                variant="h6"
+                component="span"
+                color="textPrimary"
+              >
+                {`${message}`}
+              </Typography>
             </Typography>
           </>
         }

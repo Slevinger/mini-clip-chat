@@ -17,7 +17,7 @@ export const signUpForRoomChanges = (dispatch, currentUserName) => {
   socket.on("leftRoom", user => {
     debugger;
     if (currentUserName === user.username) {
-      dispatch({ type: Actions.RESET });
+      dispatch({ type: Actions.RESET, payload: {} });
     } else {
       dispatch({ type: Actions.USER_LEFT, payload: { user } });
     }

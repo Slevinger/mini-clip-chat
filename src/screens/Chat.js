@@ -66,15 +66,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default ({ state, sendMessage, ...props }) => {
-  const { users, messages } = state;
+  const { users, messages, error } = state;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const messagesEndRef = useRef(null);
 
-  const showLastMessage = () => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-  };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -91,7 +87,7 @@ export default ({ state, sendMessage, ...props }) => {
 
   const container =
     window !== undefined ? () => window.document.body : undefined;
-
+  debugger;
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -135,15 +131,8 @@ export default ({ state, sendMessage, ...props }) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ChatMessageBoard
-          users={users}
-          messages={messages}
-          messagesEndRef={messagesEndRef}
-        />
-        <ChatMessageEditor
-          showLastMessage={showLastMessage}
-          sendMessage={sendMessage}
-        />
+        <ChatMessageBoard users={users} messages={messages} />
+        <ChatMessageEditor error={error} sendMessage={sendMessage} />
       </div>
     </div>
   );

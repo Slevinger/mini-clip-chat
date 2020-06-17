@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ messages, users, messagesEndRef }) => {
+export default ({ messages, users }) => {
   const classes = useStyles();
 
   const [showLatest, setShowLatest] = useState(true);
@@ -53,12 +53,6 @@ export default ({ messages, users, messagesEndRef }) => {
             {...message}
           />
           <Divider variant="inset" component="li" />
-          {index === messages.length - 1 && (
-            <div
-              style={{ float: "left", clear: "both" }}
-              ref={messagesEndRef}
-            />
-          )}
         </div>
       ))}
       <div style={{ float: "left", clear: "both" }} ref={bottomRef} />

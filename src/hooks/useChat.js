@@ -31,11 +31,13 @@ export default () => {
       socket.emit(
         "sendMessage",
         { username, message: messageText },
-        (message, err) => {
-          if (err) {
-            return console.log(err);
+        (message, error) => {
+          debugger;
+          if (error) {
+            dispatch({ type: Actions.SET_ERROR, payload: { error } });
+          } else {
+            dispatch({ type: Actions.ADD_MESSAGE, payload: { message } });
           }
-          dispatch({ type: Actions.ADD_MESSAGE, payload: { message } });
         }
       );
     },
@@ -43,14 +45,18 @@ export default () => {
   );
 
   const setProfileImage = file => {
-    dispatch({ type: Actions.SET_IMAGE, payload: { image: file } });
-    var reader = new FileReader();
-    reader.onload = async event => {
-      const imageUrl = event.target.result;
+    if (file.size > 4000000) {
+      dispatch({ type: Actions.SET_ERROR, payload: { error: "File two big" } });
+    } else {
+      dispatch({ type: Actions.SET_IMAGE, payload: { image: file } });
+      var reader = new FileReader();
+      reader.onload = async event => {
+        const imageUrl = event.target.result;
 
-      dispatch({ type: Actions.SET_PROFILE_IMAGE, payload: { imageUrl } });
-    };
-    reader.readAsDataURL(file);
+        dispatch({ type: Actions.SET_PROFILE_IMAGE, payload: { imageUrl } });
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const actions = {
