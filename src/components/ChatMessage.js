@@ -1,10 +1,12 @@
-import React, { useState, useLayoutEffect, useRef } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
 
 const StyledListItem = styled(ListItem)`
   ${({ username }) => {
@@ -20,10 +22,9 @@ const StyledListItem = styled(ListItem)`
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-export default ({ classes, ...props }) => {
+export default ({ classes, user, ...props }) => {
   const { message_id, sent_at, username, message } = props;
   const date = new Date(sent_at);
-  debugger;
 
   return (
     <StyledListItem
@@ -31,6 +32,9 @@ export default ({ classes, ...props }) => {
       alignItems="flex-start"
       key={message_id}
     >
+      <ListItemAvatar>
+        <Avatar alt={username} src={user.imageUrl} />
+      </ListItemAvatar>
       <ListItemText
         secondary={
           <>

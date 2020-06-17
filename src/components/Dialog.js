@@ -5,17 +5,52 @@ import Dialog from "@material-ui/core/Dialog";
 import TextField from "@material-ui/core/TextField";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
-
+import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
+import Avatar from "@material-ui/core/Avatar";
+import { makeStyles } from "@material-ui/core/styles";
+import styled, { css } from "styled-components";
+import { createFileSelector, toBase64 } from "../utils";
+
+const LinkContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        pointer-events: none;
+      `}
+  }
+`;
+const useStyles = makeStyles(theme => ({
+  avatarPicker: {
+    padding: "0px",
+    marginTop: "10px",
+    borderWidth: "thin",
+    flexDirection: "row",
+    display: "flex",
+    alignItems: "center",
+    alignText: "center"
+  }
+}));
 
 export default props => {
-  const { state, ...actions } = props;
+  const classes = useStyles();
+  const { state, setProfileImage, ...actions } = props;
+
+  const fileSelector = createFileSelector(setProfileImage);
 
   const [username, setUsername] = useState(null);
-  const submit = useCallback(username => {
-    username && actions.joinRoom(username);
-  }, []);
-
+  const submit = useCallback(
+    username => {
+      username && actions.joinRoom(username, state.imageUrl);
+    },
+    [state]
+  );
+  debugger;
   return (
     <Dialog aria-labelledby="simple-dialog-title" open={!state.username}>
       <DialogTitle>Sign In</DialogTitle>
@@ -31,6 +66,19 @@ export default props => {
             setUsername(e.target.value);
           }}
         />
+        <Container className={classes.avatarPicker}>
+          <Avatar alt={username} src={state.imageUrl} />
+          <LinkContainer disabled={!username} className={classes.linkContainer}>
+            <a
+              href="#"
+              onClick={() => {
+                fileSelector.click();
+              }}
+            >
+              Choose Image
+            </a>
+          </LinkContainer>
+        </Container>
       </DialogContent>
       <DialogActions>
         <Button

@@ -131,7 +131,7 @@ export default ({ state, sendMessage, ...props }) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ChatMessageBoard messages={messages} />
+        <ChatMessageBoard users={users} messages={messages} />
         <ChatMessageEditor sendMessage={sendMessage} />
       </div>
     </div>

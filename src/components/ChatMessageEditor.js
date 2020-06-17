@@ -31,9 +31,11 @@ export default ({ sendMessage }) => {
           setMessage(e.target.value);
         }}
         onKeyPress={e => {
-          if (e.key === "Enter" && e.shiftKey) {
-            sendMessage(message);
-            setMessage("");
+          if (e.key === "Enter") {
+            if (!e.shiftKey) {
+              sendMessage(message);
+              setMessage("");
+            }
           }
         }}
       />

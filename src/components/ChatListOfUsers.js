@@ -3,6 +3,9 @@ import React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -14,16 +17,21 @@ const useStyles = makeStyles(theme => ({
 }));
 export default ({ users }) => {
   const classes = useStyles();
-
+  debugger;
   return (
     <List className={classes.root} dense={false}>
-      {users.map(user => {
-        return (
-          <ListItem key={user}>
-            <ListItemText primary={user} />
-          </ListItem>
-        );
-      })}
+      {Object.values(users)
+        .filter(Boolean)
+        .map(({ username, imageUrl }) => {
+          return (
+            <ListItem key={username}>
+              <ListItemAvatar>
+                <Avatar alt={username} src={imageUrl} />
+              </ListItemAvatar>
+              <ListItemText primary={username} />
+            </ListItem>
+          );
+        })}
     </List>
   );
 };

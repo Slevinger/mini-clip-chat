@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ messages }) => {
+export default ({ messages, users }) => {
   const classes = useStyles();
 
   const [showLatest, setShowLatest] = useState(true);
@@ -47,7 +47,11 @@ export default ({ messages }) => {
     <List ref={containerRef} className={classes.root} onScroll={onScroll}>
       {messages.map((message, index) => (
         <div key={index}>
-          <ChatMessage classes={classes} {...message} />
+          <ChatMessage
+            classes={classes}
+            user={users[message.username] || {}}
+            {...message}
+          />
           <Divider variant="inset" component="li" />
         </div>
       ))}
