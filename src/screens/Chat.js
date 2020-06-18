@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef, useCallback } from "react";
 import { Context as ChatContext } from "../context/MessagesContext";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -13,6 +13,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import ChatMessageBoard from "../components/ChatMessageBoard";
 import ChatMessageEditor from "../components/ChatMessageEditor";
 import UsersList from "../components/ChatListOfUsers";
+import Touchable from "../components/Touchable";
 
 const drawerWidth = 240;
 
@@ -73,13 +74,21 @@ export default () => {
     state: { users, signedIn, username },
     signUpForRoomChanges
   } = useContext(ChatContext);
+  const touchableRef = useRef();
 
   useEffect(() => {
     debugger;
+
     if (!signedIn && username) {
       signUpForRoomChanges(username);
     }
   }, [username]);
+
+  const showDrawer = () => {
+    debugger;
+
+    console.log("swipe");
+  };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -93,16 +102,17 @@ export default () => {
       <UsersList users={users} />
     </div>
   );
-
   const container =
     window !== undefined ? () => window.document.body : undefined;
   debugger;
   return (
-    <div className={classes.root}>
+    <Touchable
+      ref={touchableRef}
+      swipeRight={handleDrawerToggle}
+      className={classes.root}
+    >
       <CssBaseline />
-
       <div className={classes.drawer}>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
             container={container}
@@ -125,8 +135,12 @@ export default () => {
             classes={{
               paper: classes.drawerPaper
             }}
+            anchor={"left"}
             variant="permanent"
             open
+            ModalProps={{
+              keepMounted: true // Better open performance on mobile.
+            }}
           >
             {drawer}
           </Drawer>
@@ -143,6 +157,6 @@ export default () => {
         <ChatMessageBoard />
         <ChatMessageEditor />
       </div>
-    </div>
+    </Touchable>
   );
 };
