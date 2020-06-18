@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
+import { Context as ChatContext } from "../context/MessagesContext";
 
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
@@ -40,15 +41,16 @@ const useStyles = makeStyles(theme => ({
 
 export default props => {
   const classes = useStyles();
-  const { state, setProfileImage, ...actions } = props;
+  const { state, setProfileImage, joinRoom } = useContext(ChatContext);
+  // const { state, setProfileImage, ...actions } = props;
   const { loading } = state;
-  debugger;
+
   const fileSelector = createFileSelector(setProfileImage);
 
   const [username, setUsername] = useState(null);
   const submit = useCallback(
     username => {
-      username && actions.joinRoom(username, state.imageUrl);
+      username && joinRoom(username, state.imageUrl);
     },
     [state]
   );

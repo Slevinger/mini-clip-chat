@@ -1,4 +1,6 @@
-import React, { useState, useLayoutEffect, useRef } from "react";
+import React, { useState, useLayoutEffect, useRef, useContext } from "react";
+import { Context as ChatContext } from "../context/MessagesContext";
+
 import ChatMessage from "./ChatMessage";
 import { useBottomScrollListener } from "react-bottom-scroll-listener";
 
@@ -20,8 +22,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ messages, users }) => {
+export default () => {
   const classes = useStyles();
+  const {
+    state: { messages, users }
+  } = useContext(ChatContext);
 
   const [showLatest, setShowLatest] = useState(true);
 

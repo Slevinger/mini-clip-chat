@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
+import { Context as ChatContext } from "../context/MessagesContext";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,9 +15,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ sendMessage, username, error }) => {
+export default () => {
   const classes = useStyles();
   const [message, setMessage] = useState("");
+  const {
+    state: { username, error },
+    sendMessage
+  } = useContext(ChatContext);
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
@@ -34,7 +39,7 @@ export default ({ sendMessage, username, error }) => {
         }}
         onKeyPress={e => {
           if (e.key === "Enter" && e.shiftKey) {
-            sendMessage(message);
+            sendMessage(username, message);
             setMessage("");
           }
         }}
@@ -43,7 +48,7 @@ export default ({ sendMessage, username, error }) => {
         variant="contained"
         color="primary"
         onClick={() => {
-          sendMessage(message);
+          sendMessage(username, message);
 
           setMessage("");
         }}

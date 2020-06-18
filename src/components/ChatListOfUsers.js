@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context as ChatContext } from "../context/MessagesContext";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -15,7 +16,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper
   }
 }));
-export default ({ users }) => {
+export default () => {
+  const {
+    state: { users }
+  } = useContext(ChatContext);
   const classes = useStyles();
   debugger;
   return (

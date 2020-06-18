@@ -7,10 +7,11 @@ export const initialState = {
   username: "",
   imageUrl: "",
   users: [],
-  loading: false
+  loading: false,
+  signedIn: false
 };
 
-export const messagesReducer = (state, { type, payload }) => {
+export default (state, { type, payload }) => {
   const { user } = payload;
   switch (type) {
     case Actions.SET_ERROR:
@@ -48,7 +49,6 @@ export const messagesReducer = (state, { type, payload }) => {
       };
       break;
     case Actions.USER_JOINED:
-      debugger;
       return {
         ...state,
         error: "",
@@ -67,6 +67,8 @@ export const messagesReducer = (state, { type, payload }) => {
     case Actions.SET_LOADING:
       const { loading } = payload;
       return { ...state, loading };
+    case Actions.ASSIGN_TO_ROOM:
+      return { ...state, signedIn: true };
     case Actions.RESET:
       return { ...initialState };
       break;

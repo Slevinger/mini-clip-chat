@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
+import React, { useContext, useEffect } from "react";
+import { Context as ChatContext } from "../context/MessagesContext";
+
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
@@ -12,7 +13,6 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import ChatMessageBoard from "../components/ChatMessageBoard";
 import ChatMessageEditor from "../components/ChatMessageEditor";
 import UsersList from "../components/ChatListOfUsers";
-import styled from "styled-components";
 
 const drawerWidth = 240;
 
@@ -66,11 +66,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default ({ state, sendMessage, ...props }) => {
-  const { users, messages, error, username } = state;
   const classes = useStyles();
-  const theme = useTheme();
+  const { users, messages, error } = state;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const {
+    state: { username, signedIn },
+    signUpForRoomChanges
+  } = useContext(ChatContext);
 
+  useEffect(() => {
+    debugger;
+    if (!signedIn && username) {
+      signUpForRoomChanges(username);
+    }
+  }, [username]);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
