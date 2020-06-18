@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/any-clip-chat/static/css/main.1f4ea31b.chunk.css",
-    "main.js": "/any-clip-chat/static/js/main.22d4c2c3.chunk.js",
-    "main.js.map": "/any-clip-chat/static/js/main.22d4c2c3.chunk.js.map",
+    "main.js": "/any-clip-chat/static/js/main.2185df1b.chunk.js",
+    "main.js.map": "/any-clip-chat/static/js/main.2185df1b.chunk.js.map",
     "runtime-main.js": "/any-clip-chat/static/js/runtime-main.cd8dfe4c.js",
     "runtime-main.js.map": "/any-clip-chat/static/js/runtime-main.cd8dfe4c.js.map",
     "static/js/2.361eb8d0.chunk.js": "/any-clip-chat/static/js/2.361eb8d0.chunk.js",
     "static/js/2.361eb8d0.chunk.js.map": "/any-clip-chat/static/js/2.361eb8d0.chunk.js.map",
     "index.html": "/any-clip-chat/index.html",
-    "precache-manifest.5ef8ea261eb5c1ad20caaac91c939130.js": "/any-clip-chat/precache-manifest.5ef8ea261eb5c1ad20caaac91c939130.js",
+    "precache-manifest.8d941439980ddd97958dd16118bebde4.js": "/any-clip-chat/precache-manifest.8d941439980ddd97958dd16118bebde4.js",
     "service-worker.js": "/any-clip-chat/service-worker.js",
     "static/css/main.1f4ea31b.chunk.css.map": "/any-clip-chat/static/css/main.1f4ea31b.chunk.css.map",
     "static/js/2.361eb8d0.chunk.js.LICENSE.txt": "/any-clip-chat/static/js/2.361eb8d0.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cd8dfe4c.js",
     "static/js/2.361eb8d0.chunk.js",
     "static/css/main.1f4ea31b.chunk.css",
-    "static/js/main.22d4c2c3.chunk.js"
+    "static/js/main.2185df1b.chunk.js"
   ]
 }
