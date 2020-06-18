@@ -127,7 +127,7 @@ export default ({ state, sendMessage, ...props }) => {
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar className={classes.appBar}>
             <Typography variant="h6" noWrap>
-              Mini-Clip Chat
+              Any-Clip Chat
             </Typography>
           </Toolbar>
         </AppBar>
