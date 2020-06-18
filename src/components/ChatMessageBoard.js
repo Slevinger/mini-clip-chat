@@ -8,8 +8,6 @@ import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // width: "100%",
-    // flex: 1,
     height: "80vh",
     overflowY: "scroll",
     backgroundColor: theme.palette.background.paper

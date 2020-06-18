@@ -9,7 +9,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row",
     "& .MuiTextField-root": {
-      // margin: theme.spacing(1),
       width: "100%"
     }
   }

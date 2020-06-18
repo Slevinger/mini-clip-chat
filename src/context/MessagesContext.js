@@ -1,5 +1,4 @@
 import createDataContext from "./createDataContext";
-
 import messagesReducer, { initialState } from "../reducers/messagesReducer";
 import Actions from "../const/actions";
 import {
@@ -17,7 +16,6 @@ const joinRoom = dispatch => async (username, imageUrl) => {
   });
 
   socket.emit("joinRoom", { username, imageUrl }, (room, error) => {
-
     if (error) {
       dispatch({ type: Actions.SET_ERROR, payload: { error } });
     } else {
@@ -31,7 +29,6 @@ const sendMessage = dispatch => (username, messageText) => {
     "sendMessage",
     { username, message: messageText },
     (message, error) => {
-
       if (error) {
         dispatch({ type: Actions.SET_ERROR, payload: { error } });
       } else {
@@ -57,7 +54,6 @@ const setProfileImage = dispatch => async file => {
       var reader = new FileReader();
       reader.onload = async event => {
         const imageUrl = event.target.result;
-
         dispatch({ type: Actions.SET_PROFILE_IMAGE, payload: { imageUrl } });
       };
 
