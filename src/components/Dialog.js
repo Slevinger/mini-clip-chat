@@ -11,6 +11,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 import styled, { css } from "styled-components";
 import { createFileSelector, toBase64 } from "../utils";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const LinkContainer = styled.div`
   flex: 1;
@@ -40,7 +41,8 @@ const useStyles = makeStyles(theme => ({
 export default props => {
   const classes = useStyles();
   const { state, setProfileImage, ...actions } = props;
-
+  const { loading } = state;
+  debugger;
   const fileSelector = createFileSelector(setProfileImage);
 
   const [username, setUsername] = useState(null);
@@ -78,6 +80,7 @@ export default props => {
               Choose Image
             </a>
           </LinkContainer>
+          {loading && <CircularProgress size={20} />}
         </Container>
       </DialogContent>
       <DialogActions>

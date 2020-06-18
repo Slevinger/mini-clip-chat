@@ -6,7 +6,8 @@ export const initialState = {
   messages: [],
   username: "",
   imageUrl: "",
-  users: []
+  users: [],
+  loading: false
 };
 
 export const messagesReducer = (state, { type, payload }) => {
@@ -14,13 +15,14 @@ export const messagesReducer = (state, { type, payload }) => {
   switch (type) {
     case Actions.SET_ERROR:
       const { error } = payload;
-      return { ...state, error };
+      return { ...state, error, loading: false };
     case Actions.ADD_MESSAGE:
       const { message } = payload;
       // debugger;
       return {
         ...state,
         error: "",
+        loading: false,
         messages: [...state.messages, message]
       };
     case Actions.USER_JOIN:
@@ -28,6 +30,7 @@ export const messagesReducer = (state, { type, payload }) => {
       return {
         ...state,
         ...room,
+        loading: true,
         username,
         error: ""
       };
@@ -40,6 +43,7 @@ export const messagesReducer = (state, { type, payload }) => {
           ...state.messages,
           messages(Actions.USER_LEFT, user.username)
         ],
+        loading: false,
         error: ""
       };
       break;
@@ -48,6 +52,7 @@ export const messagesReducer = (state, { type, payload }) => {
       return {
         ...state,
         error: "",
+        loading: false,
         messages: [
           ...state.messages,
           messages(Actions.USER_JOINED, user.username)
@@ -57,9 +62,11 @@ export const messagesReducer = (state, { type, payload }) => {
       break;
     case Actions.SET_PROFILE_IMAGE:
       const { imageUrl } = payload;
-      return { ...state, imageUrl };
+      return { ...state, imageUrl, error: "", loading: false };
       break;
-
+    case Actions.SET_LOADING:
+      const { loading } = payload;
+      return { ...state, loading };
     case Actions.RESET:
       return { ...initialState };
       break;

@@ -44,18 +44,33 @@ export default () => {
     [username]
   );
 
-  const setProfileImage = file => {
-    if (file.size > 4000000) {
-      dispatch({ type: Actions.SET_ERROR, payload: { error: "File two big" } });
-    } else {
-      dispatch({ type: Actions.SET_IMAGE, payload: { image: file } });
-      var reader = new FileReader();
-      reader.onload = async event => {
-        const imageUrl = event.target.result;
+  const setProfileImage = async file => {
+    try {
+      if (file.size > 4000000) {
+        dispatch({
+          type: Actions.SET_ERROR,
+          payload: { error: "File Too Big" }
+        });
+      } else {
+        await dispatch({
+          type: Actions.SET_LOADING,
+          payload: { loading: true }
+        });
+        debugger;
+        var reader = new FileReader();
+        reader.onload = async event => {
+          const imageUrl = event.target.result;
 
-        dispatch({ type: Actions.SET_PROFILE_IMAGE, payload: { imageUrl } });
-      };
-      reader.readAsDataURL(file);
+          dispatch({ type: Actions.SET_PROFILE_IMAGE, payload: { imageUrl } });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    } catch (e) {
+      dispatch({
+        type: Actions.SET_ERROR,
+        payload: { error: "File Format Not Supported" }
+      });
     }
   };
 
