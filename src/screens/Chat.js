@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useCallback } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context as ChatContext } from "../context/MessagesContext";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -21,10 +21,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     paddingTop: "40px",
-
-    flexDirectoion: "row",
+    flexDirection: "row",
     display: "flex",
-    // width: "100%",
     overflow: "none"
   },
   drawer: {
@@ -36,17 +34,8 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`
-
-      // flex: 1
     }
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none"
-    }
-  },
-  // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth
@@ -56,10 +45,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3)
   },
   content: {
-    // width: "100vw",
-    // height: "90%",
     width: `calc(100% - ${drawerWidth}px)`,
-
     flex: 1,
     display: "flex",
     flexDirection: "column"
@@ -69,7 +55,7 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles();
 
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const {
     state: { users, signedIn, username },
     signUpForRoomChanges
@@ -77,18 +63,11 @@ export default () => {
   const touchableRef = useRef();
 
   useEffect(() => {
-    debugger;
-
     if (!signedIn && username) {
       signUpForRoomChanges(username);
     }
   }, [username]);
 
-  const showDrawer = () => {
-    debugger;
-
-    console.log("swipe");
-  };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -99,12 +78,12 @@ export default () => {
         <div className={classes.toolbarHeader}>Logged In Users</div>
       </div>
       <Divider />
-      <UsersList users={users} />
+      <UsersList />
     </div>
   );
   const container =
     window !== undefined ? () => window.document.body : undefined;
-  debugger;
+
   return (
     <Touchable
       ref={touchableRef}

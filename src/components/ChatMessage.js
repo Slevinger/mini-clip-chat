@@ -7,7 +7,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
-import { display } from "@material-ui/system";
 
 const StyledListItem = styled(ListItem)`
   ${({ username }) => {

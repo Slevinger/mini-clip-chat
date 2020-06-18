@@ -1,12 +1,9 @@
 import React, { useState, useLayoutEffect, useRef, useContext } from "react";
 import { Context as ChatContext } from "../context/MessagesContext";
-
 import ChatMessage from "./ChatMessage";
 import { useBottomScrollListener } from "react-bottom-scroll-listener";
-
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
-
 import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles(theme => ({
@@ -29,7 +26,6 @@ export default () => {
   } = useContext(ChatContext);
 
   const [showLatest, setShowLatest] = useState(true);
-
   const bottomRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -41,9 +37,11 @@ export default () => {
       scrollToBottom();
     }
   }, [showLatest, messages.length]);
+
   const containerRef = useBottomScrollListener(() => {
     setShowLatest(true);
   });
+
   const onScroll = e => {
     setShowLatest(false);
   };

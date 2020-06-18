@@ -16,11 +16,11 @@ export default ({ children, swipeRight, ...props }) => {
     ref.current.addEventListener("touchstart", async e => {
       await setTouchEndX(null);
       setTouchStartX(e.changedTouches[0].clientX);
-      console.log(e.changedTouches[0].clientX);
+      // console.log(e.changedTouches[0].clientX);
     });
     ref.current.addEventListener("touchend", e => {
       setTouchEndX(e.changedTouches[0].clientX);
-      console.log(e.changedTouches[0].clientX);
+      // console.log(e.changedTouches[0].clientX);
     });
   }, [ref]);
 

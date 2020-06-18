@@ -22,7 +22,9 @@ export const signUpForRoomChanges = (dispatch, currentUserName) => {
       dispatch({ type: Actions.USER_LEFT, payload: { user } });
     }
   });
+
   dispatch({ type: Actions.SIGN_TO_ROOM, payload: {} });
+
   socket.on("error", error => {
     console.log(error);
   });

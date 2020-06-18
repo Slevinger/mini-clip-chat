@@ -21,7 +21,6 @@ export default () => {
     state: { users }
   } = useContext(ChatContext);
   const classes = useStyles();
-  debugger;
   return (
     <List className={classes.root} dense={false}>
       {Object.values(users)

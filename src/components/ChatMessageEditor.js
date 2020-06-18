@@ -49,7 +49,6 @@ export default () => {
         color="primary"
         onClick={() => {
           sendMessage(username, message);
-
           setMessage("");
         }}
       >
