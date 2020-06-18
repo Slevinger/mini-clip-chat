@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "96bd60853989273bdf958b093a96b5ea",
+    "revision": "386bfd2757b5b3fa85efdedcf42bc761",
     "url": "/any-clip-chat/index.html"
   },
   {
