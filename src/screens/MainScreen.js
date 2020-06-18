@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { socket } from "../services/socket";
+import React from "react";
 import Dialog from "../components/Dialog";
 import Chat from "./Chat";
-import useChat from "../hooks/useChat";
 
 export default () => {
-  const chat = useChat();
-
   return (
     <>
-      <Dialog {...chat} />
-      <Chat {...chat} />
+      <Dialog />
+      <Chat />
     </>
   );
 };
