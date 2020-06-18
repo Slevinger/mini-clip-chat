@@ -80,13 +80,13 @@ export default props => {
               Choose Image
             </a>
           </LinkContainer>
-          {loading && <CircularProgress size={20} />}
         </Container>
       </DialogContent>
       <DialogActions>
         <Button
           variant="contained"
           color="primary"
+          endIcon={loading && <CircularProgress color="white" size={20} />}
           onClick={() => {
             submit(username);
           }}

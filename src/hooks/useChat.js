@@ -15,6 +15,10 @@ export default () => {
   }, [username, signedIn]);
 
   const joinRoom = useCallback(async (username, imageUrl) => {
+    await dispatch({
+      type: Actions.SET_LOADING,
+      payload: { loading: true }
+    });
     socket.emit("joinRoom", { username, imageUrl }, (room, error) => {
       debugger;
       if (error) {
