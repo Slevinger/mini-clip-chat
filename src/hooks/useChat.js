@@ -19,7 +19,7 @@ export default () => {
       type: Actions.SET_LOADING,
       payload: { loading: true }
     });
-    ``;
+
     socket.emit("joinRoom", { username, imageUrl }, (room, error) => {
       debugger;
       if (error) {
