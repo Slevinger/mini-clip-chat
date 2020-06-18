@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/any-clip-chat/static/css/main.1f4ea31b.chunk.css",
-    "main.js": "/any-clip-chat/static/js/main.d0a7c292.chunk.js",
-    "main.js.map": "/any-clip-chat/static/js/main.d0a7c292.chunk.js.map",
+    "main.js": "/any-clip-chat/static/js/main.6bd06b9b.chunk.js",
+    "main.js.map": "/any-clip-chat/static/js/main.6bd06b9b.chunk.js.map",
     "runtime-main.js": "/any-clip-chat/static/js/runtime-main.cd8dfe4c.js",
     "runtime-main.js.map": "/any-clip-chat/static/js/runtime-main.cd8dfe4c.js.map",
-    "static/js/2.ba92b758.chunk.js": "/any-clip-chat/static/js/2.ba92b758.chunk.js",
-    "static/js/2.ba92b758.chunk.js.map": "/any-clip-chat/static/js/2.ba92b758.chunk.js.map",
+    "static/js/2.fbb01350.chunk.js": "/any-clip-chat/static/js/2.fbb01350.chunk.js",
+    "static/js/2.fbb01350.chunk.js.map": "/any-clip-chat/static/js/2.fbb01350.chunk.js.map",
     "index.html": "/any-clip-chat/index.html",
-    "precache-manifest.d738b9414e891674d735bf6317b57c83.js": "/any-clip-chat/precache-manifest.d738b9414e891674d735bf6317b57c83.js",
+    "precache-manifest.dc8e7aeeb236cb7fafdcd3e3802cc914.js": "/any-clip-chat/precache-manifest.dc8e7aeeb236cb7fafdcd3e3802cc914.js",
     "service-worker.js": "/any-clip-chat/service-worker.js",
     "static/css/main.1f4ea31b.chunk.css.map": "/any-clip-chat/static/css/main.1f4ea31b.chunk.css.map",
-    "static/js/2.ba92b758.chunk.js.LICENSE.txt": "/any-clip-chat/static/js/2.ba92b758.chunk.js.LICENSE.txt"
+    "static/js/2.fbb01350.chunk.js.LICENSE.txt": "/any-clip-chat/static/js/2.fbb01350.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.cd8dfe4c.js",
-    "static/js/2.ba92b758.chunk.js",
+    "static/js/2.fbb01350.chunk.js",
     "static/css/main.1f4ea31b.chunk.css",
-    "static/js/main.d0a7c292.chunk.js"
+    "static/js/main.6bd06b9b.chunk.js"
   ]
 }
