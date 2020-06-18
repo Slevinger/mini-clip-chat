@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://slevinger.github.io/mini-clip-chat/",
+  "homepage": "https://slevinger.github.io/any-clip-chat/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.2",
