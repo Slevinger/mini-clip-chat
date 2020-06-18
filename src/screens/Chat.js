@@ -65,12 +65,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ state, sendMessage, ...props }) => {
+export default () => {
   const classes = useStyles();
-  const { users, messages, error } = state;
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const {
-    state: { username, signedIn },
+    state: { users, signedIn, username },
     signUpForRoomChanges
   } = useContext(ChatContext);
 
@@ -140,12 +140,8 @@ export default ({ state, sendMessage, ...props }) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ChatMessageBoard users={users} messages={messages} />
-        <ChatMessageEditor
-          error={error}
-          sendMessage={sendMessage}
-          username={username}
-        />
+        <ChatMessageBoard />
+        <ChatMessageEditor />
       </div>
     </div>
   );
