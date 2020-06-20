@@ -25,7 +25,6 @@ const timeAgo = new TimeAgo("en-US");
 export default ({ classes, user, ...props }) => {
   const { message_id, sent_at, username, message } = props;
   const date = new Date(sent_at);
-  debugger;
   return (
     <StyledListItem
       username={username}

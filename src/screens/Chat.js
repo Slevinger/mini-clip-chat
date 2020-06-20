@@ -3,17 +3,14 @@ import { Context as ChatContext } from "../context/MessagesContext";
 
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
 
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import ChatMessageBoard from "../components/ChatMessageBoard";
 import ChatMessageEditor from "../components/ChatMessageEditor";
-import UsersList from "../components/ChatListOfUsers";
 import Touchable from "../components/Touchable";
+import SideBar from "../components/SideBar";
 
 const drawerWidth = 240;
 
@@ -54,10 +51,10 @@ const useStyles = makeStyles(theme => ({
 
 export default () => {
   const classes = useStyles();
-
   const [mobileOpen, setMobileOpen] = useState(false);
+
   const {
-    state: { users, signedIn, username },
+    state: { signedIn, username },
     signUpForRoomChanges
   } = useContext(ChatContext);
   const touchableRef = useRef();
@@ -67,22 +64,9 @@ export default () => {
       signUpForRoomChanges(username);
     }
   }, [username]);
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  const drawer = (
-    <div>
-      <div className={classes.toolbar}>
-        <div className={classes.toolbarHeader}>Logged In Users</div>
-      </div>
-      <Divider />
-      <UsersList />
-    </div>
-  );
-  const container =
-    window !== undefined ? () => window.document.body : undefined;
 
   return (
     <Touchable
@@ -91,40 +75,11 @@ export default () => {
       className={classes.root}
     >
       <CssBaseline />
-      <div className={classes.drawer}>
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={"left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            ModalProps={{
-              keepMounted: true // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            anchor={"left"}
-            variant="permanent"
-            open
-            ModalProps={{
-              keepMounted: true // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </div>
+      <SideBar
+        classes={classes}
+        mobileOpen={mobileOpen}
+        handleDrawerToggle={handleDrawerToggle}
+      />
       <div className={classes.content}>
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar className={classes.appBar}>

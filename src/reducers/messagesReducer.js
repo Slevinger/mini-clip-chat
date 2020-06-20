@@ -19,7 +19,7 @@ export default (state, { type, payload }) => {
       return { ...state, error, loading: false };
     case Actions.ADD_MESSAGE:
       const { message } = payload;
-      // debugger;
+
       return {
         ...state,
         error: "",

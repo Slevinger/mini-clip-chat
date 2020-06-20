@@ -7,15 +7,12 @@ socket.connect();
 
 export const signUpForRoomChanges = (dispatch, currentUserName) => {
   socket.on("message", message => {
-    // debugger;
     dispatch({ type: Actions.ADD_MESSAGE, payload: { message } });
   });
   socket.on("joinedRoom", user => {
-    // debugger;
     dispatch({ type: Actions.USER_JOINED, payload: { user } });
   });
   socket.on("leftRoom", user => {
-    // debugger;
     if (currentUserName === user.username) {
       dispatch({ type: Actions.RESET, payload: {} });
     } else {
