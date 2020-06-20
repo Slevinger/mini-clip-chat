@@ -40,7 +40,7 @@ const sendMessage = dispatch => (username, messageText) => {
 
 const setProfileImage = dispatch => async file => {
   try {
-    if (file.size > 4000000) {
+    if (file.size > 1000000) {
       dispatch({
         type: Actions.SET_ERROR,
         payload: { error: "File Too Big" }
